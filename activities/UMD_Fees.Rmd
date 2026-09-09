@@ -4,18 +4,13 @@ title: "UMD Fees"
 
 Follow along with the demo to learn how to calculate percentage change using R and the Tidyverse. You should get started by loading the tidyverse in a new R block.
 
-
 ### Task 1: Load the tidyverse
-
 
 ```{r}
 library(tidyverse)
 ```
 
-
-
-
-### Task 2: Load the UMD Fees dataset from https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/umd_fees.csv
+### Task 2: Load the UMD Fees dataset from <https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/umd_fees.csv>
 
 ```{r}
 umd_fees <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/heads/main/data/umd_fees.csv")
@@ -27,13 +22,10 @@ umd_fees <- read_csv("https://raw.githubusercontent.com/dwillis/jour405/refs/hea
 umd_fees_pct <- umd_fees |> mutate(pct_change = (`Fall 2026`- `Fall 2021`)/`Fall 2021` * 100)
 ```
 
-
-
 ### Task 4: Describe the results
 
 Write a few sentences about what you found in those percentages. What's the story here? What questions do you have?
 
-
-
+The percent change in the different fee categories varies wildly, from a 0% change (athletics) to a 150% change (student sustainability). All categories other than athletics increased in price from 2021 to 2026 but some categories (sustainability, counseling, student union) experienced a plateau — prices stopped increasing, either in 2024 or 2025. Despite the price of student sustainability more than doubling (fall 2021 sustainability price of $12 increasing to $30 by fall 2024), the 150% increase (of $18) is little compared to the 58.3% increase in shuttle bus fees (fall 2021 price of $223 jumped to $353 in fall 2026, an increase of $130). My questions: how have the price of athletics remained consistent at $399 over all listed years? Why do shuttle bus fees increase yearly? How have sustainability fees plateaued? Why did the charge of $15 for student counseling begin in fall 2022 after no charges in fall 2021?
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
