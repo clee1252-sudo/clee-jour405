@@ -39,7 +39,7 @@ team_aces |> mutate(percentile = ntile(total_aces, 100))
 
 Write a couple of sentences that puts Maryland into context with the other teams in the dataset. You can do some Internet research to help with this.
 
-
+Despite being in the 95th percentile for aces (spikes that grab a point without anyone on the opposing team touching the volleyball), Maryland's volleyball team ended their 2024 season with a 14-17 record — not stupendous. Yet there are no Big Ten teams ahead of Maryland when looking at service aces! 
 
 When you are done, save your work, switch to GitHub Desktop, then add, commit and push your changes to GitHub and submit the URL of the notebook in ELMS.
 
