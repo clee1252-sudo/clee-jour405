@@ -68,3 +68,25 @@ In 2019, the city of Frederick reported 309 violent crimes, while in 2020, it re
 ### Task 9: Save Your Work and Put it on GitHub
 
 Save this notebook, then commit it to your local repository. Push the changes to your GitHub repository and submit the URL for this file in ELMS.
+
+### Task 10: 9/19/26
+
+Using the 2020 violent crime rate, calculate the percentiles using `ntile()`. Save the results to a new dataframe called `md_cities_percentiles`. How many cities are above the 90th percentile?
+
+10 cities are above the 90th percentile.
+
+```{r}
+md_cities_percentiles <- md_cities_change |>
+  mutate(percentile = ntile(violent_rate_2020, 100))
+```
+
+Calculate the Interquartile Range of the 2020 violent crime rate using `summarize()` and R's `IQR()` function. The syntax is similar to how `mean()` works.
+
+```{r}
+md_cities_IQR <- md_cities_percentiles |>
+  summarize(IQR(violent_rate_2020))
+```
+
+Do the results change your best story idea from the previous assignment? Why or why not?
+
+The max violent rate for 2020 is ~240 crimes per 10,000 residents (Ocean City) and the min violent rate for 2020 is 0 (a variety of places). An IQR of 42 for the 2020 violent rate means that the spread of the data between the 3rd and 1st quartiles is 42. 42 is not a *massive* IQR considering the data values, so I guess another story could be about how crime rates in 2020 were fairly similar across the board.
