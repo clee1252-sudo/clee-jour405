@@ -50,6 +50,7 @@ mean(sample_50$unaffiliated)
 How close is your sample estimate to the original proportion? Is it surprising?
 
 ANSWER HERE
+The sample is close, but not that close. I'm a little bit surprised how far off it is.
 
 ### Task 5: Take a single larger sample
 
