@@ -59,3 +59,4 @@ weekly_wmata |>
 **Answer this question:** Describe the trend you see. Is ridership going up, down, or staying flat? What are the big dips, and what might explain them? What would you want to know before writing a story about Metro weekly ridership trends?
 
 ANSWER HERE
+The ridership is, according to the trend line, steadily increasing. Big dips hover around the ends/beginnings of the year, which I would associate with holidays. Fewer commuters are going into work on the trains over holiday breaks. I'm not sure why ridership would jump so much in the early spring — new hires? I'd want to know why these jumps happen as a story writer about ridership trends. I'd also like to know what causes one off dips or jumps, like changes in the community or incidents that prevent people from going to work, rather than simply just about annual holidays or events when people aren't working.
