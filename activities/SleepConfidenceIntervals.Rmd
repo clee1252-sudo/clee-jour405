@@ -42,6 +42,7 @@ sleep_stats
 **Answer this question:** Based on these numbers alone, what would you tell the health reporter? Why might it be risky to report the average as the definitive answer for all students?
 
 ANSWER HERE
+The sample size is really, really small. All students? This would not be a definitive answer I would give to anyone, I would certainly try to adjust for a confidence interval before I presented it to anyone. I would tell the health reporter an adjusted number to tell them that I need a larger sample.
 
 ### Task 3: Calculate the standard error
 
@@ -59,6 +60,7 @@ sleep_stats
 **Answer this question:** The standard error is much smaller than the standard deviation. Why? What does each one measure?
 
 ANSWER HERE
+Instead of measuring where most of the data fits into against the mean, standard error measures how much a sample figure could be incorrect or deviant from the population figure.
 
 ### Task 4: Calculate a 95% confidence interval
 
@@ -80,6 +82,7 @@ sleep_stats |>
 **Answer this question:** Write one sentence explaining what this confidence interval means in plain English that a reader would understand.
 
 ANSWER HERE
+With 95% confidence, we can declare that students on campus on average sleep between 7.28 and 8.18 hours each night.
 
 ### Task 5: Visualize the distribution with the confidence interval
 
@@ -113,6 +116,7 @@ ggplot(sleep_data, aes(x = hours)) +
 **Answer this question:** Look at the chart. Notice that the confidence interval is much narrower than the spread of individual data points. Why? What's the difference between the variation in individual sleep hours and the uncertainty about the average?
 
 ANSWER HERE
+The individual sleep hours vary quite widely, but it's largely because of the small sample. If the sample were significantly larger, we'd likely see a normal distribution that peaks around the confidence interval we see shaded in the histogram. The uncertainty about the average represents room for error if something is wrong — with a 95% confidence, the true population mean is within that shaded area.
 
 ### Task 6: The CDC question — is 7 hours within the interval?
 
@@ -135,6 +139,8 @@ sleep_stats |>
   c) "Survey: Students Getting Recommended Amount of Sleep"
 
 ANSWER HERE
+
+Headline B is odd — sure, students could get more sleep, but that's not representative of the CDC's opinion or the data. It's misleading. Headline A is my choice, because it's the most precise. Yes, students on average are getting more than seven hours of sleep. Headline C doesn't use the word "average" and creates a head-scratching situation: what is the recommended amount of sleep?
 
 ### Task 7: What about a bigger sample?
 
@@ -168,6 +174,7 @@ comparison
 **Answer this question:** How did the margin of error change? What does this tell you about the relationship between sample size and certainty?
 
 ANSWER HERE
+The margin of error shrunk, meaning that the larger a sample taken is, the more certain we can be about our speculative results.
 
 ### Task 8: Journalistic interpretation
 
@@ -176,3 +183,6 @@ You now have all the statistics you need. Based on what you've calculated:
 Write a headline and a one-paragraph lede for a campus news story about student sleep habits. Your text should accurately reflect the confidence interval — don't overstate or understate the findings.
 
 ANSWER HERE
+University students average more than seven hours of sleep per night, according to data
+
+Students on campus average between 7.46 and 8 hours of sleep each night, according to figures of a 95% confidence. The CDC states that adults between the ages of 18 and 25 should sleep at least seven hours each night.
