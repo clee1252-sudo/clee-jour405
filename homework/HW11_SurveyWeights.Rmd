@@ -1,6 +1,6 @@
 ---
 title: "HW11: Education Level and Survey Weighting"
-author: "Your Name Here"
+author: cameron lee
 ---
 
 ```{r setup, include=FALSE}
@@ -47,18 +47,20 @@ ggplot(nonvoters_data, aes(x = weight)) +
 **Question 1:** Most weights cluster near 1.0, but some are much higher or lower. What does a weight of 0.2 tell you about that respondent's group in the sample? What about a weight of 3.5? Why might a pollster assign such extreme weights?
 
 ANSWER HERE
+A weight of 0.2 would represent a person highly overrepresented in the sample, while a weight of 3.5 would represent a person highly underrepresented in the sample. These extreme weights may be assigned by a pollster to account for large sampling disparities in what kind of person is being sampled.
 
 ## Task 2: Education Distribution in the Sample (3 points)
 
 ```{r education-distribution}
 nonvoters_data |>
-  count(REPLACE_ME) |>
+  count(educ) |>
   mutate(percentage = round(n / sum(n) * 100, 1))
 ```
 
 **Question 2:** College graduates are overrepresented in most surveys. Does that appear to be true here? Why might college graduates be more likely to respond to a survey than people with less education?
 
 ANSWER HERE
+Many white collar jobs (college graduates) utilize the internet for business, and many surveys also utilize the internet for polling. Little polling is truly done in person.
 
 ## Task 3: Unweighted Voting Intentions by Education (4 points)
 
@@ -88,6 +90,7 @@ unweighted_summary
 **Question 3:** Based only on these unweighted numbers, write a one-sentence headline for a story about education and voting intentions.
 
 ANSWER HERE
+Those who attended or graduated college are more likely to vote than those who only attended high school or less
 
 ## Task 4: Weighted Voting Intentions by Education (2 points)
 
@@ -97,7 +100,7 @@ Now apply the weights. Instead of counting respondents, we sum their weights —
 weighted_by_education <- nonvoters_data |>
   filter(!is.na(Q21), Q21 > 0, !is.na(educ)) |>
   group_by(educ, Q21) |>
-  summarize(weighted_count = sum(REPLACE_ME), .groups = "drop_last") |>
+  summarize(weighted_count = sum(weight), .groups = "drop_last") |>
   mutate(weighted_total = sum(weighted_count),
          weighted_percentage = weighted_count / weighted_total * 100) |>
   ungroup()
@@ -125,7 +128,7 @@ viz_data <- bind_rows(
   weighted_by_education |>
     filter(Q21 == 1) |>
     mutate(Type = "Weighted",
-           percentage = REPLACE_ME) |>
+           percentage = weighted_percentage) |>
     select(Type, educ, percentage)
 )
 
@@ -146,6 +149,7 @@ ggplot(viz_data, aes(x = educ, y = percentage, fill = Type)) +
 **Question 4:** Which education group shows the biggest shift between weighted and unweighted results? In percentage points, how large is that shift? Does weighting change the story, or does it just change the exact numbers?
 
 ANSWER HERE
+The education group "high school or less" shows the largest shift between weighted and unweighted results, a shift of 2.7%. The story at hand does not change, but it gives more credence to my headline statement since we not have a larger margin between the high school figures and the college figures.
 
 ## Task 6: The UMD Belonging Survey (8 points)
 
@@ -154,3 +158,6 @@ Earlier in class this week, we looked at the 2024 UMD Belonging and Community Su
 **Question 5:** Based on what you've learned in this assignment, write 2-3 paragraphs as if you were a reporter evaluating the UMD survey before writing a story based on it. Address: (1) what the lack of weighting means for how you'd use the results, (2) which groups in the UMD survey appeared most underrepresented based on Figures 1 and 2, and (3) what question you would ask the survey's authors before publishing.
 
 ANSWER HERE
+A lack of weighting in the results of the survey prevents us from reliably making conclusive statements about the answers and projecting them to the campus population because we do not have a rock solid depiction of all those who populate the University of Maryland. We can speculate on the results of the sample, but without reliable weighting, we cannot make sound judgments about what our results mean for the rest of campus.
+
+What is "missing/unknown?" What does that mean in our sample? How do gender expansive and "missing/unknown" people make up 0% of the campus population, but 3% and 4% of the sample, respectively? These groups definitely need more representation in the sample and could benefit from weighting. I would ask the survey's authors about how they found their respondents and what "missing/unknown" refers to.
