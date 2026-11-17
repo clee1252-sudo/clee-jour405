@@ -9,3 +9,5 @@ correlation —> i'm absolutely going to want to calculate a correlation coeffic
 visual data form —> i'm thinking hard on how i would present my data, once i compile it and examine it. i don't think a scatterplot would make sense — maybe a bar graph with a range of gas prices and then bars with the average number of public transit riders on the days when gas costs that much? 
 
 statistical significance —> imperative to compare to alpha value, see if data is statistically significant and if we can reject the null hypothesis (no statistical signficance between gas prices & public transit ridership)
+
+cohen's d —> could i use cohen's d to analyze mean ridership figures between gas prices? not sure on this one at all
