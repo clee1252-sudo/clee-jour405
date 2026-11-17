@@ -1,0 +1,11 @@
+11.16 // "the tests you could run"
+—
+confidence interval -> i'm not sure how i would adjust for the sample with a study like this, as the goal of my project is to examine gasoline prices versus public transit ridership. i'm only going to examine gas prices to the time when they started to seriously increase (beginning of 2026), so i don't know if or how i would adjust with that sample. would i adjust for the sample of riders, too?
+
+linear regression —> through linear regression, i can examine gasoline prices (the would-be independent variable) against other data figures, such as car purchases or car sales. producing a line of best fit against fluctuating metro ridership would be helpful to look at.
+
+correlation —> i'm absolutely going to want to calculate a correlation coefficient to see if there is any kind of connection between my main variables.
+
+visual data form —> i'm thinking hard on how i would present my data, once i compile it and examine it. i don't think a scatterplot would make sense — maybe a bar graph with a range of gas prices and then bars with the average number of public transit riders on the days when gas costs that much? 
+
+statistical significance —> imperative to compare to alpha value, see if data is statistically significant
