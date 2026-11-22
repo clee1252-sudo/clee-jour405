@@ -33,7 +33,7 @@ schools |> arrange(`FARMS Pct`) |> head(10)
 Look at the distribution of FARMS percentages. Do any values look unusual or suspicious? What might it mean if a school has a FARMS percentage of exactly 100? Write two or three sentences describing what you see and whether anything concerns you.
 
 ANSWER HERE
-
+A FARMS percentage of 100% is quite suspicious. MULTIPLE schools with a 100% FARMS percentage is really suspicious. What is going on here? An elementary school where only 26.1% of students meet or exceed expectations is really concerning.
 
 ### Task 2: Create a Scatterplot and Describe the Results
 
@@ -51,7 +51,7 @@ schools |>
 Describe what you see. Is there a clear trend? Does the regression line look like it represents the data well, or does it seem to be pulled in an odd direction? Connect what you observed in Task 1 to what you see here.
 
 ANSWER HERE
-
+There is not a clear trend and the regression line does not appear to represent the data well. The data point at 100% FARMS percentage are oddly grouped at the right of the scatterplot and seem to be pulling the line up. What is going on here?
 
 ### Task 3: Run the Regression Model
 
@@ -68,7 +68,7 @@ The **p-value** tells you whether the relationship is statistically significant.
 
 Report all three values and describe what they tell you. Does this model support the school board member's claim? Is this even a model worth using?
 
-ANSWER HERE
+This model is not worth using. The p-value, 0.1225, is greater than 0.05, meaning the results are not statistically significant. According to adjusted r-squared, only 3% of the variation in scores is explained by FARMS. And the FARMS percentage coefficient, 0.12, is pretty close to 0, no relation. Toss this model out! It doesn't support the claim at all reliably.
 
 
 ### Task 4: What's Driving the Problem? Filter and Rerun.
