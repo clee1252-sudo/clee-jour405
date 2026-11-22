@@ -1,6 +1,6 @@
 ---
 title: "Identifying Schools with Biggest Differences in Math Test Scores, Part 2"
-author: "YOUR NAME"
+author: cameron lee
 ---
 
 ```{r}
@@ -30,7 +30,7 @@ schools |> arrange(desc(`FARMS Pct`)) |> head(10)
 
 Are there any data quality issues like the ones you found in the Pennsylvania data? How does the distribution of FARMS percentages compare between the two counties? Note anything that concerns you or gives you confidence in the data.
 
-ANSWER HERE
+There are no hugely absurd extreme values like 0 or 100 in this data, contrasting it with the PA data set.
 
 
 ### Task 2: Create a Scatterplot and Compare (5 points)
@@ -39,7 +39,7 @@ Replace the REPLACE_ME value with the correct variable name to create a scatterp
 
 ```{r}
 schools |>
-  ggplot(aes(x = `REPLACE_ME`, y = `% Met or Exceeded Math Expectations`)) +
+  ggplot(aes(x = `FARMS Pct`, y = `% Met or Exceeded Math Expectations`)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, color = "red") +
   labs(x = "FARMS Percentage", y = "% Met or Exceeded Math Expectations",
@@ -48,21 +48,20 @@ schools |>
 
 Describe what you see. Then compare this scatterplot specifically to the Pennsylvania one: what differences do you notice in the direction, strength, and spread of the relationship? The two counties share a name and are both suburban — what might explain why they look so different?
 
-ANSWER HERE
-
+What I see is a scatterplot with data that does show a real trend, unlike the PA plot. There are no strange data point hugging the end of the graph, and while the line of best fit doesn't show a tight, neat fit with the points, one can easily make out how the line is following the points. My guess is that Moco MD assessed their data correctly, while in PA, something is altering the results. Could it be malicious, or just an error in the reporting?
 
 ### Task 3: Linear Regression Model (5 points)
 
 Replace the REPLACE_ME value with the correct variable name to run a linear regression model predicting math scores from FARMS percentage.
 
 ```{r}
-model <- lm(`REPLACE_ME` ~ `FARMS Pct`, data = schools)
+model <- lm(`% Met or Exceeded Math Expectations` ~ `FARMS Pct`, data = schools)
 summary(model)
 ```
 
 Report the three key statistics: the p-value, the Adjusted R-squared, and the coefficient for FARMS Pct. Then interpret them together — not separately. What does the combination of these three numbers tell you about the relationship between poverty and math scores in Montgomery County, Md.? Is this model worth using? How does it compare to the Pennsylvania model?
 
-ANSWER HERE
+Our p-value is miniscule, so our results are statistically significant. Our adjusted r-squared value of 67% suggests that 2/3s of our data is affected by FARMS percentage. Pretty okay. And our FARMS percentage coefficient points to a downward shift as the FARMS percentage increases. As poverty increases, math scores decrease. I think this model is worth using, unlike the PA model. It tells a real story backed by significant data.
 
 
 ### Task 4: Identifying Schools with the Biggest Residuals (6 points)
@@ -72,9 +71,9 @@ Replace the REPLACE_ME values with the correct variable names to calculate predi
 ```{r}
 schools <- schools |>
   mutate(
-    predicted = predict(REPLACE_ME),
+    predicted = predict(model),
     residual = `% Met or Exceeded Math Expectations` - predicted,
-    abs_residual = abs(REPLACE_ME)
+    abs_residual = abs(residual)
   ) |>
   arrange(desc(abs_residual))
 
@@ -89,7 +88,7 @@ For each of the two schools, answer:
 - What would your first reporting question be to the principal of that school?
 
 ANSWER HERE
-
+Fox Chapel Elementary has the largest positive residual, while Germantown Elementary has the largest negative residual. Fox Chapel Elementary is situated in a very diverse zip code with a poverty line percentage of 9.8% and median household income of $119,731. Meanwhile, Germantown Elementary's zip code features nearly three times the population and a lower median household income by about $4,000. Interestingly enough, Fox Chapel's zip code features 21% of its child residents below the poverty line, while Germantown Elementary's zip code features 11% of its child residents below the poverty line. What causes this disparity in child poverty and academics, principals?
 
 ### Task 5: Evaluate the Model and Write the Pitch (7 points)
 
@@ -97,4 +96,4 @@ You've now run this analysis on two counties. Return to the school board member'
 
 Write a short story pitch of 4-6 sentences that addresses all of the following: Does the Maryland data support or contradict the claim? How does it compare to what you found in Pennsylvania? What would you ask the school board member if you called them for comment? And what's the most interesting specific finding from your residuals analysis: which school would you want to visit first, and why?
 
-ANSWER HERE
+Through our analysis, we see that the Maryland data does support the claim that schools with fewer students on FARMS do better on standardized tests. Compared to the PA data, which is unreliable and shows the opposite result, we have a real, provable, significant claim here. I would ask the school board member if they actually took a look at the data or just said what they thought would truly be the case. Since they are based in PA, this would not be true for their state and its questionable data. I think the most interesting residual finding was the difference in childhood poverty rates. I'd like to visit Fox Chapel and see why they are breaking out of the mold and doing well despite 21% of children in the area below the poverty line.
